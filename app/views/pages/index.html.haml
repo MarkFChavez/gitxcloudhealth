@@ -1,4 +1,12 @@
-.row
-  .col-lg-12
-    = link_to "Signin w/ GitHub", "/auth/github", class: "btn btn-primary"
+.jumbotron
+  %h1 Git x CloudHealth
+
+  %p.lead
+    Get your CloudHealth commits so you can give updates in a very accurate and professional manner. Plus, it's more cooler.
+
+  %p
+    = link_to "/auth/github", class: "btn btn-default btn-lg" do
+      %span
+        = fa_icon "github"
+        Use your GitHub
 

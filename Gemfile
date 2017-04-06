@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'omniauth-github'
 gem 'pry'
 gem 'pry-rails'
+gem 'font-awesome-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
