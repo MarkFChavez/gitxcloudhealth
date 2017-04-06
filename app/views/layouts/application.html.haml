@@ -9,4 +9,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    = yield
+    .container
+      .row
+        .col-lg-12
+          .well
+            = link_to "Signin w/ GitHub", "/auth/github", class: "btn btn-primary"
+
+      .row
+        .col-lg-12
+          = yield

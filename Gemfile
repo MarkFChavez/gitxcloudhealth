@@ -8,6 +8,9 @@ end
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'haml-rails'
+gem 'omniauth-github'
+gem 'pry'
+gem 'pry-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
