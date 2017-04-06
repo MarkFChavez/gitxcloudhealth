@@ -3,6 +3,7 @@ class CreateUser < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.column :provider, :string, null: false
       t.column :uid, :string, null: false
+      t.column :access_token, :string, null: false
       t.column :email, :string
       t.column :name, :string
       t.column :nickname, :string
