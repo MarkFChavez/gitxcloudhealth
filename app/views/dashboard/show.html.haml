@@ -1,16 +1,17 @@
 .row
   .col-lg-12
-    %h1.text-center
+    %h1
+      ch
+      #{fa_icon("slack")}
       #{fa_icon("git")}
-      + CloudHealth
-    %hr
 
 - @body.each do |date, commits|
   .row
     .col-lg-12
-      %h2.text-center
-        #{fa_icon("calendar")}
+      %h3.text-center
+        #{fa_icon("hand-o-right")}
         #{human_date(date)}
+      %hr
 
   .row.commits
     .col-lg-12
@@ -21,7 +22,8 @@
               .col-lg-12
                 %span.lead
                   %em
-                    %strong #{hash["sha"][0..5]}
+                    %strong
+                      #{link_to(hash["sha"][0..5], hash["html_url"], target: "_blank")}
                   %small
                     committed by #{hash["committer"]["login"]}
 
@@ -33,8 +35,3 @@
 
             %div
               %blockquote #{hash["commit"]["message"]}
-
-              -# %div
-              -#   #{hash["sha"][0..5]}
-
-              -# #{image_tag(hash["author"]["avatar_url"], width: 60, height: 60)}

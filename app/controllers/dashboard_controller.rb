@@ -1,23 +1,20 @@
 class DashboardController < ApplicationController
-
-  before_action :authenticate_user!
-
   def show
-    resp = Net::HTTP.get_response(uri)
-    @body = JSON.parse(resp.body)
-    @body = @body.select do |payload|
-      payload["committer"]["login"] == "mrkjlchvz"
-    end
-    @body = @body.group_by do |payload|
-      Date.parse(payload["commit"]["committer"]["date"])
-    end
-    # @body = mock_body
+    # resp = Net::HTTP.get_response(uri)
+    # @body = JSON.parse(resp.body)
     # @body = @body.select do |payload|
     #   payload["committer"]["login"] == "mrkjlchvz"
     # end
-    # @body = @body.group_by do |hash|
-    #   Date.parse(hash[:commit][:committer][:date])
+    # @body = @body.group_by do |payload|
+    #   Date.parse(payload["commit"]["committer"]["date"])
     # end
+    @body = mock_body
+    @body = @body.select do |payload|
+      payload["committer"]["login"] == "mrkjlchvz"
+    end
+    @body = @body.group_by do |hash|
+      Date.parse(hash[:commit][:committer][:date])
+    end
   end
 
   private
@@ -165,7 +162,7 @@ class DashboardController < ApplicationController
   end
 
   def uri
-    URI.parse("https://api.github.com/repos/cloudhealthkinnect/cloudhealth/commits?access_token=#{current_user.access_token}")
+    URI.parse("https://api.github.com/repos/cloudhealthkinnect/cloudhealth/commits?access_token=#{Rails.application.secrets.access_token}")
   end
 
 end
