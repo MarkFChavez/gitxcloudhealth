@@ -1,4 +1,40 @@
-= @body.count
+.row
+  .col-lg-12
+    %h1.text-center
+      #{fa_icon("git")}
+      + CloudHealth
+    %hr
 
-%div
-  = link_to "logout", logout_path, method: :delete
+- @body.each do |date, commits|
+  .row
+    .col-lg-12
+      %h2.text-center
+        #{fa_icon("calendar")}
+        #{human_date(date)}
+
+  .row.commits
+    .col-lg-12
+      - commits.reverse.each do |hash|
+        .row.commit
+          .col-lg-12
+            .row
+              .col-lg-12
+                %span.lead
+                  %em
+                    %strong #{hash["sha"][0..5]}
+                  %small
+                    committed by #{hash["committer"]["login"]}
+
+            .row
+              .col-lg-12
+                %p
+                  #{fa_icon("clock-o")}
+                  #{human_time(hash["commit"]["committer"]["date"])}
+
+            %div
+              %blockquote #{hash["commit"]["message"]}
+
+              -# %div
+              -#   #{hash["sha"][0..5]}
+
+              -# #{image_tag(hash["author"]["avatar_url"], width: 60, height: 60)}
