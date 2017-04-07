@@ -5,6 +5,12 @@
       #{fa_icon("slack")}
       #{fa_icon("git")}
 
+.row
+  .col-lg-12
+    = link_to root_path do
+      #{fa_icon("refresh")}
+      %span refresh
+
 - @body.each do |date, commits|
   .row
     .col-lg-12
