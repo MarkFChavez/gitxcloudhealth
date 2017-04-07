@@ -19,6 +19,5 @@ Bundler.require(*Rails.groups)
 module GitCloud
   class Application < Rails::Application
     config.time_zone = "Hong Kong"
-    config.autoload_paths += %W(#{config.root}/queries)
   end
 end
